@@ -1,4 +1,6 @@
-# NotNullEnforcer
+![CI](https://github.com/droyad/NotNullableReferenceTypeEnforcer/workflows/CI/badge.svg)
+
+# NotNullableReferenceTypeEnforcer
 
 This library inspects an object and it's children and throws an exception if a property is null that shouldn't be based 
 on the C# 8 `nullable reference type` feature.
@@ -20,20 +22,20 @@ Only once that is done can assumptions be made about the non-nullability of a pr
 
 ## Usage
 
-Install the [NotNullEnforcer package](https://www.nuget.org/packages/NotNullEnforcer) from NuGet
+Install the [NotNullableReferenceTypeEnforcer package](https://www.nuget.org/packages/NotNullableReferenceTypeEnforcer) from NuGet
 
 ```csharp
-using NotNullEnforcer;
+using NotNullableReferenceTypeEnforcer;
 
-NotNullEnforcer.Validate(myThing);
+NotNullableReferenceTypeEnforcer.Validate(myThing);
 ```
 
 or for dependency injection
 
 ```csharp
-using NotNullEnforcer;
+using NotNullableReferenceTypeEnforcer;
 
-builder.RegisterInstance(NotNullEnforcer.Instance).As<INotNullEnforcer>().SingleInstance();
+builder.RegisterInstance(NotNullableReferenceTypeEnforcer.Instance).As<INotNullEnforcer>().SingleInstance();
 ```
 
 An exception will be thrown if a property is null and the containing type was built with `nullable reference type` option `enabled` 

@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace NotNullEnforcer
+namespace NotNullableReferenceTypeEnforcer
 {
     internal class ReflectionStrategy : IStrategy
     {

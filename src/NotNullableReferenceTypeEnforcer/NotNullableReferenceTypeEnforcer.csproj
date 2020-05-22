@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>NotNullEnforcer</AssemblyName>
-    <RootNamespace>NotNullEnforcer</RootNamespace>
+    <AssemblyName>NotNullableReferenceTypeEnforcer</AssemblyName>
+    <RootNamespace>NotNullableReferenceTypeEnforcer</RootNamespace>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
     <WarningsAsErrors>true;CS8625;CS8618;</WarningsAsErrors>

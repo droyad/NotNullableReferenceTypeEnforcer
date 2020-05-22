@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotNullEnforcer", "NotNullEnforcer\NotNullEnforcer.csproj", "{8530DF59-A67C-43ED-A6D7-FD0497AAE70C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotNullableReferenceTypeEnforcer", "NotNullableReferenceTypeEnforcer\NotNullableReferenceTypeEnforcer.csproj", "{8530DF59-A67C-43ED-A6D7-FD0497AAE70C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{4FA92113-77CF-4094-BE69-76AC7B825D05}"
 EndProject

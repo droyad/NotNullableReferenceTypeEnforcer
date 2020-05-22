@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using FluentAssertions;
-using NotNullEnforcer;
+using NotNullableReferenceTypeEnforcer;
 
 namespace Tests
 {

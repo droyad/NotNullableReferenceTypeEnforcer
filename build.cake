@@ -13,7 +13,7 @@ var configuration = Argument("configuration", "Release");
 // GLOBAL VARIABLES
 ///////////////////////////////////////////////////////////////////////////////
 var artifactsDir = "./artifacts";
-var projectToPackage = "./src/NotNullEnforcer";
+var projectToPackage = "./src/NotNullableReferenceTypeEnforcer";
 
 var isContinuousIntegrationBuild = !BuildSystem.IsLocalBuild;
 
@@ -30,7 +30,7 @@ Setup(context =>
     });
     nugetVersion = gitVersionInfo.NuGetVersion;
 
-    Information("Building NotNullEnforcer v{0}", nugetVersion);
+    Information("Building NotNullableReferenceTypeEnforcer v{0}", nugetVersion);
     if(BuildSystem.IsRunningOnAppVeyor)
         AppVeyor.UpdateBuildVersion(gitVersionInfo.NuGetVersion);
 });
@@ -95,16 +95,25 @@ Task("Pack")
 Task("PushPackages")
     .IsDependentOn("Test")
     .IsDependentOn("Pack")
-    .WithCriteria(() => isContinuousIntegrationBuild && gitVersionInfo.PreReleaseTag == "")
+    .WithCriteria(() => isContinuousIntegrationBuild)
     .Does(() =>
 {
-    var package = $"{artifactsDir}/NotNullEnforcer.{nugetVersion}.nupkg";
+    var package = $"{artifactsDir}/NotNullableReferenceTypeEnforcer.{nugetVersion}.nupkg";
+
     NuGetPush(package, new NuGetPushSettings {
         Source = "https://www.nuget.org/api/v2/package",
-        ApiKey = EnvironmentVariable("NuGetApiKey"),
-        Timeout = TimeSpan.FromMinutes(20)
+        ApiKey = EnvironmentVariable("FeedzApiKey"),
+        Timeout = TimeSpan.FromMinutes(5)
     });
 
+    if(gitVersionInfo.PreReleaseTag == "") 
+    {
+        NuGetPush(package, new NuGetPushSettings {
+            Source = "https://www.nuget.org/api/v2/package",
+            ApiKey = EnvironmentVariable("NuGetApiKey"),
+            Timeout = TimeSpan.FromMinutes(5)
+        });
+    }
 });
 
 

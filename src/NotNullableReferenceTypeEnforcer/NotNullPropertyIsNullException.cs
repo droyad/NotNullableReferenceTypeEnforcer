@@ -1,6 +1,6 @@
 using System;
 
-namespace NotNullEnforcer
+namespace NotNullableReferenceTypeEnforcer
 {
     public class NotNullPropertyIsNullException : Exception
     {

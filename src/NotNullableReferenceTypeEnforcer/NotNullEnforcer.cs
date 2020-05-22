@@ -1,19 +1,19 @@
-namespace NotNullEnforcer
+namespace NotNullableReferenceTypeEnforcer
 {
     public interface INotNullEnforcer
     {
         void Validate(object value);
     }
 
-    public class NotNullEnforcer : INotNullEnforcer
+    public class NotNullableReferenceTypeEnforcer : INotNullEnforcer
     {
         readonly IStrategy _strategy = new ReflectionStrategy();
 
-        private NotNullEnforcer()
+        private NotNullableReferenceTypeEnforcer()
         {
         }
 
-        private static INotNullEnforcer Instance { get; } = new NotNullEnforcer();
+        private static INotNullEnforcer Instance { get; } = new NotNullableReferenceTypeEnforcer();
 
         static void Validate(object value)
             => Instance.Validate(value);

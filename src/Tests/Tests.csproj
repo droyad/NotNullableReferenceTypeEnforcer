@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NotNullEnforcer\NotNullEnforcer.csproj" />
+    <ProjectReference Include="..\NotNullableReferenceTypeEnforcer\NotNullableReferenceTypeEnforcer.csproj" />
   </ItemGroup>
 
 </Project>
