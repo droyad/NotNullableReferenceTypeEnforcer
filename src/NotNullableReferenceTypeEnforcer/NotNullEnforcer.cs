@@ -13,9 +13,9 @@ namespace NotNullableReferenceTypeEnforcer
         {
         }
 
-        private static INotNullEnforcer Instance { get; } = new NotNullEnforcer();
+        public static INotNullEnforcer Instance { get; } = new NotNullEnforcer();
 
-        static void Validate(object value)
+        public static void Validate(object value)
             => Instance.Validate(value);
 
         void INotNullEnforcer.Validate(object value)
