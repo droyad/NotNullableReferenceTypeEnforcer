@@ -6,6 +6,10 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
     <WarningsAsErrors>true;CS8625;CS8618;</WarningsAsErrors>
+    <Authors>droyad</Authors>
+    <Description>Checks an object for compliance with the nullable reference type C# feature</Description>
+    <PackageLicenseUrl>https://github.com/droyad/NotNullableReferenceTypeEnforcer/blob/master/LICENCE.md</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/droyad/NotNullableReferenceTypeEnforcer</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
