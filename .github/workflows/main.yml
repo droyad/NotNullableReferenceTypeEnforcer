@@ -15,3 +15,6 @@ jobs:
         fetch-depth: 0
     - name: Cake
       run: ./build.ps1
+      env:
+        NuGetApiKey: ${{ secrets.NuGetApiKey }}
+        FeedzApiKey: ${{ secrets.FeedzApiKey }}
