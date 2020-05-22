@@ -4,6 +4,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotNullEnforcer", "NotNullE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{4FA92113-77CF-4094-BE69-76AC7B825D05}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{04300937-142B-4EB5-8E42-3C965198AE62}"
+ProjectSection(SolutionItems) = preProject
+	..\.gitattributes = ..\.gitattributes
+	..\.gitignore = ..\.gitignore
+	..\appveyor.yml = ..\appveyor.yml
+	..\build.cake = ..\build.cake
+	..\build.cmd = ..\build.cmd
+	..\build.ps1 = ..\build.ps1
+	..\GitVersion.yml = ..\GitVersion.yml
+	..\LICENCE.md = ..\LICENCE.md
+	..\README.md = ..\README.md
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

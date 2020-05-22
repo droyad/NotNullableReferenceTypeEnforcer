@@ -1,0 +1,9 @@
+version: '{build}'
+build_script:
+- cmd: build.cmd
+test: off
+environment:
+  NuGetApiKey:
+    secure: KO/YKIVgkXgSyk95Z+YLSmSYGrHfINv9xf6z1me/xu/hSPaWSs4NB9IpsdafKEU8
+artifacts:
+- path: artifacts\**\*.*
