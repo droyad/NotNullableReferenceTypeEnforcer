@@ -8,13 +8,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{04300937-142B-4E
 ProjectSection(SolutionItems) = preProject
 	..\.gitattributes = ..\.gitattributes
 	..\.gitignore = ..\.gitignore
-	..\appveyor.yml = ..\appveyor.yml
 	..\build.cake = ..\build.cake
 	..\build.cmd = ..\build.cmd
 	..\build.ps1 = ..\build.ps1
 	..\GitVersion.yml = ..\GitVersion.yml
 	..\LICENCE.md = ..\LICENCE.md
 	..\README.md = ..\README.md
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{441DA732-06A7-484E-90A7-E5A42D644C6C}"
+ProjectSection(SolutionItems) = preProject
+	..\.github\workflows\main.yml = ..\.github\workflows\main.yml
 EndProjectSection
 EndProject
 Global
