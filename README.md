@@ -1,6 +1,6 @@
 # NotNullEnforcer
 
-[![Build status](https://ci.appveyor.com/api/projects/status/dnnn06mquuudqpkm/branch/master?svg=true)](https://ci.appveyor.com/project/droyad/notnullenforcer/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/qib86evbnxjyg9k0/branch/master?svg=true)](https://ci.appveyor.com/project/droyad/notnullenforcer/branch/master)
 
 This library inspects an object and it's children and throws an exception if a property is null that shouldn't be based 
 on the C# 8 `nullable reference type` feature.

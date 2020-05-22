@@ -95,7 +95,7 @@ Task("Pack")
 Task("PushPackages")
     .IsDependentOn("Test")
     .IsDependentOn("Pack")
-    .WithCriteria(isContinuousIntegrationBuild && gitVersionInfo.PreReleaseTag == "")
+    .WithCriteria(() => isContinuousIntegrationBuild && gitVersionInfo.PreReleaseTag == "")
     .Does(() =>
 {
     var package = $"{artifactsDir}/NotNullEnforcer.{nugetVersion}.nupkg";
