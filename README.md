@@ -29,7 +29,7 @@ Install the [NotNullableReferenceTypeEnforcer package](https://www.nuget.org/pac
 ```csharp
 using NotNullableReferenceTypeEnforcer;
 
-NotNullableReferenceTypeEnforcer.Validate(myThing);
+NotNullEnforcer.Validate(myThing);
 ```
 
 or for dependency injection
@@ -37,7 +37,7 @@ or for dependency injection
 ```csharp
 using NotNullableReferenceTypeEnforcer;
 
-builder.RegisterInstance(NotNullableReferenceTypeEnforcer.Instance).As<INotNullEnforcer>().SingleInstance();
+builder.RegisterInstance(NotNullEnforcer.Instance).As<INotNullEnforcer>().SingleInstance();
 ```
 
 An exception will be thrown if a property is null and the containing type was built with `nullable reference type` option `enabled` 

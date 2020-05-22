@@ -5,15 +5,15 @@ namespace NotNullableReferenceTypeEnforcer
         void Validate(object value);
     }
 
-    public class NotNullableReferenceTypeEnforcer : INotNullEnforcer
+    public class NotNullEnforcer : INotNullEnforcer
     {
         readonly IStrategy _strategy = new ReflectionStrategy();
 
-        private NotNullableReferenceTypeEnforcer()
+        private NotNullEnforcer()
         {
         }
 
-        private static INotNullEnforcer Instance { get; } = new NotNullableReferenceTypeEnforcer();
+        private static INotNullEnforcer Instance { get; } = new NotNullEnforcer();
 
         static void Validate(object value)
             => Instance.Validate(value);
