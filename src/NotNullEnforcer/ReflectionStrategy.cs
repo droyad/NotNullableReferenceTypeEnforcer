@@ -16,20 +16,20 @@ namespace NotNullEnforcer
                 .GetProperties()
                 .Where(p => p.CanRead);
 
-            var (typeHasNullableAttribute, defaultIsNullable) = IsNullable(type);
+            var (isInNullableReferenceScope, defaultIsNullable) = IsNullable(type);
 
             foreach (var prop in properties)
-                Validate(value, prop, typeHasNullableAttribute, defaultIsNullable, type);
+                Validate(value, prop, isInNullableReferenceScope, defaultIsNullable, type);
         }
 
-        private void Validate(object value, PropertyInfo prop, bool typeHasNullableAttribute, bool defaultIsNullable, Type type)
+        private void Validate(object value, PropertyInfo prop, bool isInNullableReferenceScope, bool defaultIsNullable, Type type)
         {
             if (prop.PropertyType.IsPrimitive)
                 return;
 
             if (prop.PropertyType == typeof(string))
             {
-                var checkForNull = typeHasNullableAttribute && !IsNullable(prop, defaultIsNullable);
+                var checkForNull = isInNullableReferenceScope && !IsNullable(prop, defaultIsNullable);
                 if (checkForNull && prop.GetValue(value) == null)
                     throw new NotNullPropertyIsNullException($"{type.FullName}.{prop.Name} is null and does not have a nullable type annotation");
                 return;
@@ -40,34 +40,35 @@ namespace NotNullEnforcer
             {
                 Validate(propValue);
             }
-            else if (typeHasNullableAttribute && !IsNullable(prop, defaultIsNullable))
+            else if (isInNullableReferenceScope && !IsNullable(prop, defaultIsNullable))
             {
                 throw new NotNullPropertyIsNullException($"{type.FullName}.{prop.Name} is null and does not have a nullable type annotation");
             }
         }
 
-        private (bool isNullable, bool defaultIsNullable) IsNullable(Type prop)
+        private (bool isNullable, bool defaultIsNullable) IsNullable(Type type)
         {
-            foreach (var attr in prop.CustomAttributes)
-                if (attr.AttributeType.FullName == "System.Runtime.CompilerServices.NullableAttribute")
-                {
-                    foreach (var attr2 in prop.CustomAttributes)
-                        if (attr2.AttributeType.FullName == "System.Runtime.CompilerServices.NullableContextAttribute")
-                            return (true, (byte) attr2.ConstructorArguments[0].Value == 2);
+            var nullability = GetNullabilityAttributeValue(type);
+            if (nullability == null)
+                return (false, false);
 
-                    return (true, false);
-                }
+            foreach (var attr in type.CustomAttributes)
+                if (attr.AttributeType.FullName == "System.Runtime.CompilerServices.NullableContextAttribute")
+                    return (true, (byte) attr.ConstructorArguments[0].Value == 2);
 
-            return (false, false);
+            return (true, false);
         }
 
         private bool IsNullable(PropertyInfo prop, bool defaultIsNullable)
+            => GetNullabilityAttributeValue(prop) ?? defaultIsNullable;
+
+        private bool? GetNullabilityAttributeValue(MemberInfo member)
         {
-            foreach (var attr in prop.CustomAttributes)
+            foreach (var attr in member.CustomAttributes)
                 if (attr.AttributeType.FullName == "System.Runtime.CompilerServices.NullableAttribute")
                     return (byte) attr.ConstructorArguments[0].Value == 2;
 
-            return defaultIsNullable;
+            return null;
         }
     }
 }
