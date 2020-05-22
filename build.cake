@@ -101,7 +101,7 @@ Task("PushPackages")
     var package = $"{artifactsDir}/NotNullableReferenceTypeEnforcer.{nugetVersion}.nupkg";
 
     NuGetPush(package, new NuGetPushSettings {
-        Source = "https://www.nuget.org/api/v2/package",
+        Source = "https://f.feedz.io/droyad/public/nuget/index.json",
         ApiKey = EnvironmentVariable("FeedzApiKey"),
         Timeout = TimeSpan.FromMinutes(5)
     });
