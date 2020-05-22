@@ -1,4 +1,6 @@
-![CI](https://github.com/droyad/NotNullableReferenceTypeEnforcer/workflows/CI/badge.svg)
+![CI](https://github.com/droyad/NotNullableReferenceTypeEnforcer/workflows/CI/badge.svg) 
+![Feedz](https://img.shields.io/badge/endpoint.svg?url=https%3A%2F%2Ff.feedz.io%2Fdroyad%2Fpublic%2Fshield%2FNotNullableReferenceTypeEnforcer%2Flatest)
+![NuGet](https://img.shields.io/nuget/dt/NotNullableReferenceTypeEnforcer)
 
 # NotNullableReferenceTypeEnforcer
 
