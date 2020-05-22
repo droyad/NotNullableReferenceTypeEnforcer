@@ -15,7 +15,7 @@ var configuration = Argument("configuration", "Release");
 var artifactsDir = "./artifacts";
 var projectToPackage = "./src/NotNullEnforcer";
 
-var isContinuousIntegrationBuild = !BuildSystem.IsLocalBuild;
+//var isContinuousIntegrationBuild = !BuildSystem.IsLocalBuild;
 
 GitVersion gitVersionInfo;
 string nugetVersion;
